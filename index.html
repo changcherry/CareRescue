@@ -66,23 +66,23 @@
     </section>
 
     <section id="events" class="view">
-      <div class="people-toolbar"><div><h2>異動事件</h2><p>建立、追蹤及處理臨時請假、延誤、停服與需求變更</p></div><div class="people-actions"><select id="event-filter"><option value="all">全部狀態</option><option value="pending">待處理</option><option value="assigned">已補班</option><option value="closed">已結案</option></select><button id="add-event">＋ 建立異動</button></div></div>
+      <div class="people-toolbar title-only-toolbar"><div class="people-actions"><select id="event-filter"><option value="all">全部狀態</option><option value="pending">待處理</option><option value="assigned">已補班</option><option value="closed">已結案</option></select><button id="add-event">＋ 建立異動</button></div></div>
       <div class="panel table-panel"><table><thead><tr><th>事件時間</th><th>服務時間</th><th>個案</th><th>異動原因</th><th>風險</th><th>狀態</th><th>處理</th></tr></thead><tbody id="event-body"></tbody></table></div>
     </section>
 
     <section id="leave" class="view">
-      <div class="people-toolbar"><div><h2>請假管理</h2><p>照服員提出申請，居督核准後自動建立受影響服務事件</p></div><div class="people-actions"><a class="mobile-entry" href="mobile-leave.html" target="_blank">開啟手機請假畫面</a><select id="leave-filter"><option value="all">全部申請</option><option value="pending">待審核</option><option value="approved">已核准</option><option value="rejected">已退回</option></select><button id="add-leave">＋ 模擬照服員請假</button></div></div>
+      <div class="people-toolbar title-only-toolbar"><div class="people-actions"><a class="mobile-entry" href="mobile-leave.html" target="_blank">開啟手機請假畫面</a><select id="leave-filter"><option value="all">全部申請</option><option value="pending">待審核</option><option value="approved">已核准</option><option value="rejected">已退回</option></select><button id="add-leave">＋ 模擬照服員請假</button></div></div>
       <div class="leave-summary"><div><span>待審核</span><strong id="leave-pending-count">0</strong></div><div><span>今日請假人數</span><strong id="leave-today-count">0</strong></div><div><span>受影響班次</span><strong id="leave-shift-count">0</strong></div></div>
       <div class="panel table-panel"><table><thead><tr><th>申請時間</th><th>照服員</th><th>請假日期／時段</th><th>類型與原因</th><th>影響班次</th><th>狀態</th><th>審核</th></tr></thead><tbody id="leave-body"></tbody></table></div>
     </section>
 
     <section id="tracking" class="view">
-      <div class="section-title"><div><h2>通知與異動紀錄</h2><p>集中追蹤聯繫狀態與居督決策依據</p></div><button class="outline" id="export-log">匯出紀錄</button></div>
+      <div class="section-title title-only-toolbar"><button class="outline" id="export-log">匯出紀錄</button></div>
       <div class="panel table-panel"><table><thead><tr><th>時間</th><th>服務／對象</th><th>異動內容</th><th>通知對象</th><th>狀態</th><th>決策者</th></tr></thead><tbody id="log-body"></tbody></table></div>
     </section>
 
     <section id="people" class="view">
-      <div class="people-toolbar"><div><h2>人員與班表</h2><p>維護照服員資格、服務區域及每日服務安排</p></div><div class="people-actions"><label>班表日期<input type="date" id="schedule-date" value="2025-08-25"></label><button id="add-person" class="secondary-action">＋ 新增人員</button><button id="add-shift">＋ 新增班次</button></div></div>
+      <div class="people-toolbar title-only-toolbar"><div class="people-actions"><label>班表日期<input type="date" id="schedule-date" value="2025-08-25"></label><button id="add-person" class="secondary-action">＋ 新增人員</button><button id="add-shift">＋ 新增班次</button></div></div>
       <div class="people-layout">
         <aside class="staff-panel panel"><div class="staff-search"><input id="staff-search" placeholder="搜尋姓名或區域"></div><div id="staff-list"></div></aside>
         <div class="schedule-panel panel">
