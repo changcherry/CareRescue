@@ -20,6 +20,7 @@ body:before,body:after{display:none}
 .sidebar{background:#dceff5;border-right:1px solid #c9e0e8;box-shadow:none}
 .brand-mark{border-radius:6px;border:1px solid rgba(255,255,255,.95);font-family:Georgia,serif}
 .nav-item{border-radius:4px;font-weight:500;letter-spacing:0}
+.nav-item>span{display:none}.nav-item{font-size:14px;padding:13px 14px;line-height:1.35}.nav-item.active,.nav-item:hover{padding-left:11px}.nav-item b{font-size:11px;margin-left:auto}
 .nav-item.active,.nav-item:hover{box-shadow:none;border-left:3px solid #dd7650;padding-left:9px}
 .nav-item b,.risk,.status{border-radius:4px}
 .principle{border-radius:4px;background:rgba(255,255,255,.42)}
