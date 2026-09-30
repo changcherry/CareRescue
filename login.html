@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>CareRescue 登入</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="login.css">
+  <link rel="stylesheet" href="brand-login.css">
+</head>
+<body>
+  <main class="login-shell">
+    <section class="login-story">
+      <div class="story-copy brand-center"><div class="hero-logo"><span class="brand-symbol"><b>C</b><i>＋</i></span><strong>CareRescue</strong><small>照常營業</small></div></div>
+    </section>
+    <section class="login-panel">
+      <form id="login-form">
+        <div class="form-title"><small>WELCOME BACK</small><h2>登入 CareRescue</h2><p>請使用展示帳號進入系統</p></div>
+        <label>帳號<input id="account" value="supervisor.demo" autocomplete="username"></label>
+        <label>密碼<div class="password-field"><input id="password" type="password" value="demo2026" autocomplete="current-password"><button type="button" id="toggle-password">顯示</button></div></label>
+        <div class="login-options"><label><input type="checkbox" checked> 記住展示帳號</label><button type="button" id="fill-demo">使用展示帳號</button></div>
+        <button class="login-submit" type="submit">登入系統</button>
+        <p class="login-error" id="login-error"></p>
+        <div class="demo-info"><strong>展示帳號</strong><span>帳號：supervisor.demo</span><span>密碼：demo2026</span></div>
+      </form>
+      <footer>2026 中化智匯盃｜CareRescue 情境原型</footer>
+    </section>
+  </main>
+  <script src="login.js"></script>
+</body>
+</html>

@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CareRescue 居服異動與量能救援台</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <aside class="sidebar">
+    <div class="brand"><span class="brand-mark">C</span><div><strong>CareRescue</strong><small>居服異動與量能救援台</small></div></div>
+    <nav id="nav">
+      <button class="nav-item active" data-view="dashboard"><span>⌂</span>今日量能總覽</button>
+      <button class="nav-item" data-view="events"><span>▣</span>異動事件</button>
+      <button class="nav-item" data-view="leave"><span>◷</span>請假管理</button>
+      <button class="nav-item" data-view="rescue"><span>✦</span>救援決策台 <b>3</b></button>
+      <button class="nav-item" data-view="tracking"><span>✓</span>通知與追蹤</button>
+      <button class="nav-item" data-view="people"><span>♙</span>人員與班表</button>
+      <button class="nav-item" data-view="analytics"><span>▥</span>量能分析</button>
+    </nav>
+    <div class="principle"><strong>決策原則</strong><p>AI 提供篩選、排序與風險說明，最終派班決策由居督確認。</p></div>
+    <div class="user"><span>林</span><div><strong>林怡君</strong><small>居家服務督導員</small></div></div>
+  </aside>
+
+  <main>
+    <header><div><p class="eyebrow">CareRescue｜臨時異動決策支援</p><h1 id="page-title">今日量能總覽</h1></div><div class="header-actions"><span class="sync" id="login-role">居督模式</span><span class="sync">▣ 2025-08-25（一）</span><button class="logout-btn" id="logout">登出</button></div></header>
+
+    <section id="dashboard" class="view active">
+      <div class="alert-banner"><div class="pulse">!</div><div><strong>08:10 收到照服員 A 臨時請假</strong><p>3 個班次受到影響，系統已依個案風險排定處理順序。</p></div><button data-open-rescue>前往處理 →</button></div>
+      <div class="stats">
+        <article><span>待處理異動</span><strong class="danger">3</strong><small>需於 30 分鐘內確認</small></article>
+        <article><span>今日服務班次</span><strong>48</strong><small>45 正常｜3 待處理</small></article>
+        <article><span>可支援人力</span><strong>7</strong><small>已通過基本資格檢核</small></article>
+        <article><span>今日量能</span><strong class="success">92%</strong><small>較上週平均 +3%</small></article>
+      </div>
+      <div class="section-title"><div><h2>受影響服務</h2><p>依個案風險、不可中斷性與時限排序</p></div><span>最後更新 08:12</span></div>
+      <div class="case-grid" id="case-grid"></div>
+      <div class="two-col">
+        <article class="panel"><div class="panel-head"><h3>今日時段量能</h3><span>可用人力／需求</span></div><div class="capacity-bars" id="capacity-bars"></div></article>
+        <article class="panel"><div class="panel-head"><h3>異動原因</h3><span>近 30 日</span></div><div class="donut-wrap"><div class="donut"><span>38<small>件異動</small></span></div><ul><li><i class="c1"></i>臨時請假 <b>42%</b></li><li><i class="c2"></i>服務延誤 <b>26%</b></li><li><i class="c3"></i>需求變更 <b>18%</b></li><li><i class="c4"></i>其他 <b>14%</b></li></ul></div></article>
+      </div>
+    </section>
+
+    <section id="rescue" class="view">
+      <div class="rescue-layout">
+        <aside class="queue"><div class="queue-head"><h2>待處理服務</h2><span>3</span></div><div id="queue-list"></div></aside>
+        <div class="decision">
+          <div class="case-head"><div><span class="risk high" id="detail-risk">高風險</span><h2 id="detail-name">個案 C-017</h2><p id="detail-meta">09:00–10:00｜北投區｜備餐與身體照顧</p></div><div class="deadline">建議於 <strong id="detail-deadline">08:30</strong> 前完成</div></div>
+          <div class="rules"><h3>服務限制與硬性條件</h3><div id="rule-tags"></div></div>
+          <div class="recommend-head"><div><h3>候選補班方案</h3><p>已排除資格、時程與工時不符者；依風險與整體影響排序。</p></div><button class="outline" id="show-filter">查看篩選紀錄</button></div>
+          <div id="candidate-list"></div>
+          <section class="manual-assign">
+            <div class="manual-title"><div><h3>自行選派照服員</h3><p>不採用推薦方案時，可從完整人員名單自行指定。系統會保留規則檢核與決策紀錄。</p></div><span>居督決策</span></div>
+            <div class="manual-controls">
+              <label>選擇照服員<select id="manual-caregiver"></select></label>
+              <button id="check-manual">檢查並選派</button>
+            </div>
+            <div id="manual-result" class="manual-result"></div>
+          </section>
+          <div class="decision-note"><strong>AI 說明</strong><p>推薦順序是輔助資訊，不會自動派班。請確認個案需求與照服員意願後再做決策。</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="events" class="view">
+      <div class="people-toolbar"><div><h2>異動事件</h2><p>建立、追蹤及處理臨時請假、延誤、停服與需求變更</p></div><div class="people-actions"><select id="event-filter"><option value="all">全部狀態</option><option value="pending">待處理</option><option value="assigned">已補班</option><option value="closed">已結案</option></select><button id="add-event">＋ 建立異動</button></div></div>
+      <div class="panel table-panel"><table><thead><tr><th>事件時間</th><th>服務時間</th><th>個案</th><th>異動原因</th><th>風險</th><th>狀態</th><th>處理</th></tr></thead><tbody id="event-body"></tbody></table></div>
+    </section>
+
+    <section id="leave" class="view">
+      <div class="people-toolbar"><div><h2>請假管理</h2><p>照服員提出申請，居督核准後自動建立受影響服務事件</p></div><div class="people-actions"><a class="mobile-entry" href="mobile-leave.html" target="_blank">開啟手機請假畫面</a><select id="leave-filter"><option value="all">全部申請</option><option value="pending">待審核</option><option value="approved">已核准</option><option value="rejected">已退回</option></select><button id="add-leave">＋ 模擬照服員請假</button></div></div>
+      <div class="leave-summary"><div><span>待審核</span><strong id="leave-pending-count">0</strong></div><div><span>今日請假人數</span><strong id="leave-today-count">0</strong></div><div><span>受影響班次</span><strong id="leave-shift-count">0</strong></div></div>
+      <div class="panel table-panel"><table><thead><tr><th>申請時間</th><th>照服員</th><th>請假日期／時段</th><th>類型與原因</th><th>影響班次</th><th>狀態</th><th>審核</th></tr></thead><tbody id="leave-body"></tbody></table></div>
+    </section>
+
+    <section id="tracking" class="view">
+      <div class="section-title"><div><h2>通知與異動紀錄</h2><p>集中追蹤聯繫狀態與居督決策依據</p></div><button class="outline" id="export-log">匯出紀錄</button></div>
+      <div class="panel table-panel"><table><thead><tr><th>時間</th><th>服務／對象</th><th>異動內容</th><th>通知對象</th><th>狀態</th><th>決策者</th></tr></thead><tbody id="log-body"></tbody></table></div>
+    </section>
+
+    <section id="people" class="view">
+      <div class="people-toolbar"><div><h2>人員與班表</h2><p>維護照服員資格、服務區域及每日服務安排</p></div><div class="people-actions"><label>班表日期<input type="date" id="schedule-date" value="2025-08-25"></label><button id="add-person" class="secondary-action">＋ 新增人員</button><button id="add-shift">＋ 新增班次</button></div></div>
+      <div class="people-layout">
+        <aside class="staff-panel panel"><div class="staff-search"><input id="staff-search" placeholder="搜尋姓名或區域"></div><div id="staff-list"></div></aside>
+        <div class="schedule-panel panel">
+          <div class="schedule-head"><div><h3 id="staff-name">陳美玲</h3><p id="staff-profile">北投區｜身體照顧、備餐</p></div><div><strong id="staff-hours">5.0 小時</strong><small>當日已排工時</small></div></div>
+          <div class="schedule-scale"><span>08:00</span><span>10:00</span><span>12:00</span><span>14:00</span><span>16:00</span><span>18:00</span></div>
+          <div id="schedule-list" class="schedule-list"></div>
+          <div class="schedule-legend"><span><i class="service"></i>已排服務</span><span><i class="travel"></i>交通緩衝</span><span><i class="available"></i>可支援時段</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="analytics" class="view">
+      <div class="stats analytics-stats"><article><span>平均處理時間</span><strong>10.4<small> 分鐘</small></strong><small>模擬基準 45 分鐘</small></article><article><span>服務維持率</span><strong class="success">96.8%</strong><small>必要服務不中斷</small></article><article><span>方案採用率</span><strong>78%</strong><small>居督採用首選方案</small></article><article><span>負荷集中度</span><strong>低</strong><small>補班分布較上月均衡</small></article></div>
+      <div class="two-col"><article class="panel"><div class="panel-head"><h3>近 7 日異動處理</h3><span>件數</span></div><div class="chart" id="weekly-chart"></div></article><article class="panel"><div class="panel-head"><h3>高風險缺口</h3><span>依區域</span></div><div class="area-list"><div><span>北投區</span><progress value="8" max="10"></progress><b>8</b></div><div><span>士林區</span><progress value="6" max="10"></progress><b>6</b></div><div><span>內湖區</span><progress value="4" max="10"></progress><b>4</b></div><div><span>中山區</span><progress value="3" max="10"></progress><b>3</b></div></div></article></div>
+      <article class="panel roadmap"><div class="panel-head"><h3>驗證 Roadmap</h3><span>先證明決策有用，再讓系統變聰明</span></div><div class="roadmap-steps"><div class="done"><b>1</b><strong>情境原型</strong><small>流程與介面驗證</small></div><div class="current"><b>2</b><strong>規則驗證</strong><small>專家檢核限制條件</small></div><div><b>3</b><strong>實務模擬</strong><small>歷史案例回放</small></div><div><b>4</b><strong>小規模試辦</strong><small>真實場域驗證</small></div></div></article>
+    </section>
+  </main>
+
+  <div class="modal" id="modal"><div class="modal-card"><button class="close" id="close-modal">×</button><div id="modal-content"></div></div></div>
+  <div class="toast" id="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
+  <title>CareRescue 照服員請假</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="mobile-leave.css">
+</head>
+<body>
+  <main class="phone-app">
+    <header><div class="mobile-brand"><span>C</span><div><strong>CareRescue</strong><small>照服員行動服務</small></div></div><button aria-label="通知">♢</button></header>
+    <section class="welcome"><p>早安，</p><h1>陳美玲</h1><span id="today"></span></section>
+    <section class="next-shift"><div><small>下一個服務</small><strong>08:00–09:00</strong><p>C-031｜北投區｜備餐服務</p></div><span>準時</span></section>
+    <section class="leave-card">
+      <div class="section-heading"><div><small>LEAVE REQUEST</small><h2>提出請假申請</h2></div><span>尚未送出</span></div>
+      <form id="leave-form">
+        <label>請假日期<input id="m-date" type="date" required></label>
+        <div class="time-row"><label>開始時間<input id="m-start" type="time" value="09:00" required></label><label>結束時間<input id="m-end" type="time" value="18:00" required></label></div>
+        <label>請假類型<select id="m-type"><option>臨時病假</option><option>事假</option><option>家庭照顧假</option><option>公假</option><option>其他</option></select></label>
+        <label>原因說明<textarea id="m-reason" rows="3" placeholder="請簡要說明請假原因" required></textarea></label>
+        <label class="urgent"><input id="m-urgent" type="checkbox"><span><strong>緊急請假</strong><small>距離服務開始不到 2 小時，請勾選此項</small></span></label>
+        <div class="impact"><b>i</b><p>送出後，居督將收到通知並確認受影響班次。請假核准前，原班表仍然有效。</p></div>
+        <button class="submit" type="submit">送出請假申請</button>
+      </form>
+    </section>
+    <section class="history"><div class="section-heading"><h2>最近申請</h2><button id="refresh">更新</button></div><div id="mobile-history"></div></section>
+    <nav><button class="active">⌂<span>首頁</span></button><button>▣<span>班表</span></button><button>◷<span>請假</span></button><button>○<span>我的</span></button></nav>
+  </main>
+  <div class="mobile-toast" id="mobile-toast"></div>
+  <script src="mobile-leave.js"></script>
+</body>
+</html>

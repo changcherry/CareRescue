@@ -1,0 +1,13 @@
+.brand-symbol{position:relative;display:grid;place-items:center;width:46px;height:46px;color:#fff;border:1px solid #fff;border-radius:6px;font-family:Georgia,serif}
+.brand-symbol b{font-size:25px;font-weight:400}
+.brand-symbol i{position:absolute;right:-5px;bottom:-5px;display:grid;place-items:center;width:18px;height:18px;background:#d57651;color:#fff;border:2px solid #dceff5;border-radius:50%;font:700 10px 'Noto Sans TC',sans-serif}
+.login-brand strong{font-size:18px;letter-spacing:.01em}
+.login-brand small{font-size:11px;color:#b76343;font-weight:600;letter-spacing:.12em;margin-top:2px}
+.brand-center{display:grid;place-items:center;text-align:center;height:100%;margin:0}
+.hero-logo{display:flex;flex-direction:column;align-items:center;position:relative;z-index:1}
+.hero-logo .brand-symbol{width:108px;height:108px;border-width:2px;border-radius:14px;margin-bottom:22px}
+.hero-logo .brand-symbol b{font-size:62px}
+.hero-logo .brand-symbol i{width:32px;height:32px;right:-8px;bottom:-8px;font-size:16px;border-width:3px}
+.hero-logo>strong{font-size:34px;letter-spacing:.01em}
+.hero-logo>small{font-size:15px;color:#b76343;font-weight:700;letter-spacing:.25em;margin-top:8px}
+@media(max-width:760px){.brand-center{min-height:170px}.hero-logo .brand-symbol{width:76px;height:76px;margin-bottom:12px}.hero-logo .brand-symbol b{font-size:44px}.hero-logo>strong{font-size:26px}.hero-logo>small{font-size:12px}}
