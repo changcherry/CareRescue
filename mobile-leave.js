@@ -1,3 +1,5 @@
+const mobileSession=JSON.parse(sessionStorage.getItem('careRescueMobileSession')||'null');
+if(!mobileSession)location.replace('mobile-login.html');
 const today=new Date();
 const pad=n=>String(n).padStart(2,'0');
 const localDate=`${today.getFullYear()}-${pad(today.getMonth()+1)}-${pad(today.getDate())}`;
@@ -8,4 +10,5 @@ function renderHistory(){const items=load().filter(r=>r.staff==='陳美玲').sli
 function toast(text){const el=document.querySelector('#mobile-toast');el.textContent=text;el.classList.add('show');setTimeout(()=>el.classList.remove('show'),2600)}
 document.querySelector('#leave-form').addEventListener('submit',e=>{e.preventDefault();const start=document.querySelector('#m-start').value,end=document.querySelector('#m-end').value,reason=document.querySelector('#m-reason').value.trim();if(!reason||end<=start){toast('請確認請假時間與原因');return}const list=load();list.unshift({id:`L-${String(Date.now()).slice(-4)}`,createdAt:new Date().toLocaleTimeString('zh-TW',{hour:'2-digit',minute:'2-digit'}),staff:'陳美玲',date:document.querySelector('#m-date').value,start,end,type:document.querySelector('#m-type').value,reason,urgent:document.querySelector('#m-urgent').checked,status:'pending'});localStorage.setItem('careRescueLeave',JSON.stringify(list));renderHistory();e.target.reset();document.querySelector('#m-date').value='2025-08-25';document.querySelector('#m-start').value='09:00';document.querySelector('#m-end').value='18:00';toast('申請已送出，居督將收到通知')});
 document.querySelector('#refresh').onclick=renderHistory;
+document.querySelector('#mobile-logout').onclick=()=>{sessionStorage.removeItem('careRescueMobileSession');location.replace('mobile-login.html')};
 renderHistory();
